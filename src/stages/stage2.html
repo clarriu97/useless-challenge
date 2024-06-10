@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 2 - Useless Challenge</title>
+    <link rel="stylesheet" href="./../styles/style2.css">
+</head>
+<body>
+    <div class="stage2-container">
+        <div class="question-container">
+            <h2 class="question-title" id="questionTitle">Question Title</h2>
+        </div>
+        <div class="options-container">
+            <div class="option-row">
+                <button class="option-btn" id="optionA" onclick="selectOption('A')">A. Option A</button>
+                <button class="option-btn" id="optionB" onclick="selectOption('B')">B. Option B</button>
+            </div>
+            <div class="option-row">
+                <button class="option-btn" id="optionC" onclick="selectOption('C')">C. Option C</button>
+                <button class="option-btn" id="optionD" onclick="selectOption('D')">D. Option D</button>
+            </div>
+            <button class="action-btn" onclick="checkAnswer()">Check Solution</button>
+            <button class="action-btn" onclick="nextQuestionStage2()">Next Question</button>
+        </div>
+        <div id="resultMessageStage2" class="result-message"></div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
