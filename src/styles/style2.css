@@ -28,6 +28,29 @@ body {
     margin-bottom: 1em;
 }
 
+.wildcards-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.wildcard-btn {
+    padding: 0.8em 2em;
+    font-size: 1em;
+    color: white;
+    background: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.wildcard-btn.used {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
 .options-container {
     display: flex;
     flex-direction: column;

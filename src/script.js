@@ -97,6 +97,8 @@ function startStage2() {
 
 let currentQuestionIndexStage2 = 0;
 let selectedOption = '';
+let isFiftyFiftyUsed = false;
+let isPublicOpinionUsed = false;
 
 const questionsStage2 = [
     {
@@ -137,7 +139,6 @@ function loadQuestionStage2(index) {
 function selectOption(option) {
     selectedOption = option;
     resetOptions();
-
     document.getElementById(`option${option}`).classList.add('selected');
 }
 
@@ -169,15 +170,43 @@ function nextQuestionStage2() {
     currentQuestionIndexStage2++;
     if (currentQuestionIndexStage2 >= questionsStage2.length) {
         alert("You've completed the challenge!");
-        // Optionally redirect to a "game over" or "congratulations" page
+        window.location.href = '../index.html';
     } else {
         loadQuestionStage2(currentQuestionIndexStage2);
     }
+}
+
+function useFiftyFifty() {
+    if (isFiftyFiftyUsed) return;
+    isFiftyFiftyUsed = true;
+    document.getElementById('fiftyFifty').classList.add('used');
+    const question = questionsStage2[currentQuestionIndexStage2];
+    const incorrectOptions = Object.keys(question.options).filter(option => option !== question.correctAnswer);
+
+    // Remove two random incorrect options
+    const optionsToRemove = incorrectOptions.sort(() => Math.random() - 0.5).slice(0, 2);
+    optionsToRemove.forEach(option => {
+        document.getElementById(`option${option}`).innerText = '';
+    });
+}
+
+function usePublicOpinion() {
+    if (isPublicOpinionUsed) return;
+    isPublicOpinionUsed = true;
+    document.getElementById('publicOpinion').classList.add('used');
+}
+
+function resetWildcards() {
+    isFiftyFiftyUsed = false;
+    isPublicOpinionUsed = false;
+    document.getElementById('fiftyFifty').className = 'wildcard-btn';
+    document.getElementById('publicOpinion').className = 'wildcard-btn';
 }
 
 // Load the first question for stage 2 when the page loads
 if (window.location.pathname.includes('stage2.html')) {
     window.onload = () => {
         loadQuestionStage2(currentQuestionIndexStage2);
+        resetWildcards();
     };
 }
