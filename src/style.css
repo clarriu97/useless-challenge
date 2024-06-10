@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.start-btn {
+    padding: 0.8em 2em;
+    font-size: 1em;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.start-btn:hover {
+    background: #45a049;
+}
+
+/* Additional styles for stage1 */
+
+.stage1-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.app-presentation {
+    text-align: center;
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5em;
+}
+
+.app-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.app-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.app-description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 1em;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.true-false-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.true-false-btn, .action-btn {
+    padding: 0.8em 2em;
+    font-size: 1em;
+    margin: 0.5em 0;
+    color: white;
+    background: #f39c12;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.true-false-btn.selected {
+    background: #3498db;
+    color: white;
+}
+
+.true-false-btn.correct {
+    background: #2ecc71;
+}
+
+.true-false-btn.incorrect {
+    background: #e74c3c;
+}
+
+.true-false-btn.correct-answer {
+    background: #27ae60;
+}
+
+.true-false-btn:hover, .action-btn:hover {
+    background: #e67e22;
+}
+
+.result-message {
+    margin-top: 1em;
+    font-size: 1.2em;
+    color: #2ecc71;
+}

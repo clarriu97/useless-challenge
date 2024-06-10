@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 1 - Useless Challenge</title>
+    <link rel="stylesheet" href="./../style.css">
+</head>
+<body>
+    <div class="stage1-container">
+        <div class="app-presentation">
+            <img src="../assets/images/app-example.png" alt="App Image" class="app-image">
+            <h2 class="app-title" id="appTitle">App Title</h2>
+            <p class="app-description" id="appDescription">This is a description of the app. Is it real or fake?</p>
+        </div>
+        <div class="buttons-container">
+            <div class="true-false-buttons">
+                <button class="true-false-btn" id="trueButton" onclick="selectAnswer('true')">True</button>
+                <button class="true-false-btn" id="falseButton" onclick="selectAnswer('false')">False</button>
+            </div>
+            <button class="action-btn" id="checkButton" onclick="checkSolution()">Check Solution</button>
+            <button class="action-btn" onclick="nextQuestion()">Next Question</button>
+        </div>
+        <div id="resultMessage" class="result-message"></div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
