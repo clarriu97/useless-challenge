@@ -12,18 +12,41 @@ let selectedAnswer = '';
 
 const questionsStage1 = [
     {
-        title: "App Example 1",
-        description: "This app claims to translate your pet's sounds into human speech. Is it real or fake?",
-        image: "../assets/images/app-example1.png",
-        isReal: false
+        title: "Hold the Button",
+        description: "Esta aplicación es simple pero desafiante: debes mantener pulsado un botón durante el mayor tiempo posible. Compite contra otros usuarios para ver quién puede aguantar más tiempo.",
+        image: "../assets/images/hold_the_button.png",
+        isReal: true
     },
     {
-        title: "App Example 2",
-        description: "This app helps you find parking spaces in crowded cities. Is it real or fake?",
-        image: "../assets/images/app-example2.png",
+        title: "Poop Map",
+        description: "Poop Map te permite registrar los lugares donde haces tus necesidades y compartirlo con tus amigos. Una aplicación perfecta para los que quieren documentar hasta sus momentos más íntimos.",
+        image: "../assets/images/poop_map.png",
         isReal: true
-    }
-    // Add more questions as needed
+    },
+    {
+        title: "Send Me To Heaven (S.M.T.H)",
+        description: "Esta aplicación te desafía a lanzar tu teléfono tan alto como puedas y registra la altura alcanzada.",
+        image: "../assets/images/smth.png",
+        isReal: true
+    },
+    {
+        title: "Rumblr",
+        description: "Rumblr permite a los usuarios encontrar personas en su área dispuestas a pelear físicamente. La idea es que los usuarios se encuentren y se enfrenten en una pelea.",
+        image: "../assets/images/rumblr.png",
+        isReal: true
+    },
+    {
+        title: "Blower",
+        description: "Blower es una aplicación que simula un ventilador. Usa las ondas de sonido para crear una pequeña corriente de aire desde los altavoces de tu teléfono, lo suficiente como para apagar una vela.",
+        image: "../assets/images/blower.png",
+        isReal: true
+    },
+    {
+        title: "iFrenchKiss",
+        description: "Esta aplicación te permite practicar besos franceses en la pantalla de tu teléfono y te califica la calidad de tus besos.",
+        image: "../assets/images/ifk.png",
+        isReal: true
+    },
 ];
 
 function loadQuestion(index) {
