@@ -8,7 +8,6 @@ function startGame() {
 }
 
 let currentQuestionIndex = 0;
-let selectedAnswer = '';
 
 const questionsStage1 = [
     {
@@ -30,10 +29,22 @@ const questionsStage1 = [
         isReal: true
     },
     {
+        title: "BarkTranslator",
+        description: "¿Alguna vez te has preguntado qué está diciendo tu perro? BarkTranslator te permite grabar el ladrido de tu perro y lo traduce a lenguaje humano, diciéndote si tu perro tiene hambre, está feliz o simplemente quiere jugar.",
+        image: "../assets/images/bark_translator.png",
+        isReal: false
+    },
+    {
         title: "Rumblr",
         description: "Rumblr permite a los usuarios encontrar personas en su área dispuestas a pelear físicamente. La idea es que los usuarios se encuentren y se enfrenten en una pelea.",
         image: "../assets/images/rumblr.png",
         isReal: true
+    },
+    {
+        title: "Ghost Detector Pro",
+        description: "Esta app te ayuda a detectar y comunicarte con fantasmas a través de la cámara y el micrófono de tu teléfono, pudiendo identificar presencias paranormales y traducir sus mensajes.",
+        image: "../assets/images/ghost_detector.png",
+        isReal: false
     },
     {
         title: "Blower",
@@ -47,6 +58,18 @@ const questionsStage1 = [
         image: "../assets/images/ifk.png",
         isReal: true
     },
+    {
+        title: "Mind Workout",
+        description: "Esta aplicación ofrece ejercicios mentales que desarrollan tu capacidad para mover objetos con la mente, entrenándote para usar telequinesis en la vida real.",
+        image: "../assets/images/mind_workout.png",
+        isReal: false
+    },
+    {
+        title: "Gravity Control",
+        description: "Esta app puede alterar la gravedad alrededor de tu teléfono. Puedes hacer que los objetos ligeros floten o que tu teléfono se vuelva más pesado con solo deslizar un control en la app.",
+        image: "../assets/images/gravity_control.png",
+        isReal: false
+    },
 ];
 
 function loadQuestion(index) {
@@ -55,53 +78,15 @@ function loadQuestion(index) {
     document.getElementById('appDescription').innerText = question.description;
     document.querySelector('.app-image').src = question.image;
     document.getElementById('resultMessage').innerText = '';
-    selectedAnswer = '';
-    resetButtons();
-}
-
-function selectAnswer(answer) {
-    selectedAnswer = answer;
-    const trueButton = document.getElementById('trueButton');
-    const falseButton = document.getElementById('falseButton');
-
-    trueButton.classList.remove('selected');
-    falseButton.classList.remove('selected');
-
-    if (answer === 'true') {
-        trueButton.classList.add('selected');
-    } else {
-        falseButton.classList.add('selected');
-    }
-}
-
-function resetButtons() {
-    document.getElementById('trueButton').className = 'true-false-btn';
-    document.getElementById('falseButton').className = 'true-false-btn';
+    document.getElementById('answerContainer').innerText = '';
 }
 
 function checkSolution() {
-    if (!selectedAnswer) {
-        alert('Please select an answer.');
-        return;
-    }
-
     const question = questionsStage1[currentQuestionIndex];
-    const trueButton = document.getElementById('trueButton');
-    const falseButton = document.getElementById('falseButton');
-
-    if (selectedAnswer === 'true' && question.isReal) {
-        trueButton.classList.add('correct');
-    } else if (selectedAnswer === 'false' && !question.isReal) {
-        falseButton.classList.add('correct');
-    } else {
-        if (selectedAnswer === 'true') {
-            trueButton.classList.add('incorrect');
-            falseButton.classList.add('correct-answer');
-        } else {
-            falseButton.classList.add('incorrect');
-            trueButton.classList.add('correct-answer');
-        }
-    }
+    const isReal = question.isReal;
+    const answerContainer = document.getElementById('answerContainer');
+    answerContainer.innerText = isReal ? 'REAL' : 'FAKE';
+    answerContainer.style.color = isReal ? 'green' : 'red';
 }
 
 function nextQuestion() {
@@ -125,26 +110,65 @@ let isPublicOpinionUsed = false;
 
 const questionsStage2 = [
     {
-        title: "Question 1",
+        title: "¿Cuál es el patrón de Internet?",
         options: {
-            A: "Option A is the correct answer.",
-            B: "Option B is incorrect.",
-            C: "Option C is incorrect.",
-            D: "Option D is incorrect."
+            A: "San José",
+            B: "San Francisco de Asís",
+            C: "San Nicolás",
+            D: "San Isidoro de Sevilla"
+        },
+        correctAnswer: 'D'
+    },
+    {
+        title: "¿Qué se regalaba con la primera impresora comercial?",
+        options: {
+            A: "Un extintor",
+            B: "Un paquete de folios",
+            C: "Un cartucho de tinta de color",
+            D: "Un abrebotellas"
         },
         correctAnswer: 'A'
     },
     {
-        title: "Question 2",
+        title: "¿Cuál fue el primer videojuego comercializado?",
         options: {
-            A: "Option A is incorrect.",
-            B: "Option B is the correct answer.",
-            C: "Option C is incorrect.",
-            D: "Option D is incorrect."
+            A: "Computer Space",
+            B: "Pong",
+            C: "Space Invaders",
+            D: "Pac-Man"
         },
-        correctAnswer: 'B'
-    }
-    // Add more questions as needed
+        correctAnswer: 'A'
+    },    
+    {
+        title: "¿Cuál fue el primer sistema operativo desarrollado por Microsoft?",
+        options: {
+            A: "MS-DOS",
+            B: "Windows 95",
+            C: "Windows 3.1",
+            D: "Xenix"
+        },
+        correctAnswer: 'A'
+    },    
+    {
+        title: "¿Cuál fue el primer dominio registrado?",
+        options: {
+            A: "symbolics.com",
+            B: "google.com",
+            C: "example.com",
+            D: "microsoft.com"
+        },
+        correctAnswer: 'A'
+    },    
+    {
+        title: "¿Quién fue la primera persona en programar un algoritmo para una máquina?",
+        options: {
+            A: "Ada Lovelace",
+            B: "Charles Babbage",
+            C: "Alan Turing",
+            D: "Grace Hopper"
+        },
+        correctAnswer: 'A'
+    },
 ];
 
 function loadQuestionStage2(index) {
